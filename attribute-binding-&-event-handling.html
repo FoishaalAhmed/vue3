@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute-binding-&-event-handling</title>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body{
+            display: grid;
+            place-items: center;
+        }
+
+        .text-red{
+            color: red;
+        }
+
+        .text-green{
+            color: green;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="app">
+
+        <button type="button" :class=" active ? 'text-green' : 'text-red' " @click="toggle">Click Me</button>
+
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    active: true
+                }
+            },
+            methods: {
+                toggle() {
+                    this.active = ! this.active                }
+                }
+        }).mount('#app');
+    </script>
+    
+</body>
+</html>
