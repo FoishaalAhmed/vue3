@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3</title>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body{
+            display: grid;
+            place-items: center;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="app">
+        <h3 v-show="inProgressTodos.length">In Progress</h3>
+
+        <ul>
+            <li 
+                v-for="todo in inProgressTodos" 
+                :key="todo.id"
+            > 
+                <label>
+                    {{ todo.title }} 
+                    
+                    <input type="checkbox" v-model="todo.completed"> 
+                </label>
+                
+            </li>
+        </ul>
+
+        <h3 v-show="completedTodos.length">Completed</h3>
+
+        <ul>
+            <li 
+                v-for="todo in completedTodos" 
+                :key="todo.id"
+            > 
+                <label>
+                    {{ todo.title }} 
+                    
+                    <input type="checkbox" v-model="todo.completed"> 
+                </label>
+                
+            </li>
+        </ul>
+
+        <pre>
+            {{ todos }}
+        </pre>
+    </div>
+
+    <script>
+        let app = {
+            data() {
+                return {
+                    todos: [
+                        { title: 'To Do 1', completed: false, id: 1 },
+                        { title: 'To Do 2', completed: false, id: 2 },
+                        { title: 'To Do 3', completed: false, id: 3 },
+                        { title: 'To Do 4', completed: false, id: 4 },
+                    ]
+                }
+            },
+            computed: {
+                inProgressTodos() {
+                    return this.todos.filter(t => ! t.completed)
+                },
+
+                completedTodos() {
+                    return this.todos.filter(t => t.completed)
+                }
+            }
+
+        }
+
+        Vue.createApp(app).mount('#app');
+    </script>
+    
+</body>
+</html>
