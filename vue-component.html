@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,21 @@
     <script src="https://unpkg.com/vue@3"></script>
 
     <style>
-        html, body{
+        html,
+        body {
             margin: 0;
             padding: 0;
             height: 100%;
         }
 
-        body{
+        body {
             display: grid;
             place-items: center;
         }
     </style>
 
 </head>
+
 <body>
 
     <div id="app">
@@ -28,16 +31,11 @@
 
     <script type="module">
 
-        import AppButton from './js/components/appButton.js';
+        import App from './js/components/app.js';
 
-        let app = {
-            components: {
-                'app-button': AppButton
-            }
-        }
-
-        Vue.createApp(app).mount('#app');
+        Vue.createApp(App).mount('#app');
     </script>
-    
+
 </body>
+
 </html>

@@ -1,15 +1,20 @@
 export default {
     template: `
         <button
-            type="button" 
+            :type="type"
             style="background:blue; color:white; padding:10px; " 
             :disabled="processing">
             <slot/>
         </button>
     `,
-    data() {
-        return {
-            processing:false
-        };
+    props: {
+        type: {
+            'type': String,
+            'default': 'button'
+        },
+        processing: {
+            'type': Boolean,
+            'default': false
+        }
     }
 }
