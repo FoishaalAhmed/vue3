@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3</title>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+    </div>
+
+    <script type="module">
+        import App from './js/components/todos/todos.js';
+        Vue.createApp(App).mount('#app');
+    </script>
+
+</body>
+
+</html>
