@@ -16,10 +16,10 @@ export default {
     data() {
         return {
             todos: [
-                { title: 'To Do 1', completed: false, id: 1 },
-                { title: 'To Do 2', completed: false, id: 2 },
-                { title: 'To Do 3', completed: false, id: 3 },
-                { title: 'To Do 4', completed: false, id: 4 },
+                { title: 'To Do 1', completed: false, id: 1, tag: 'Coding' },
+                { title: 'To Do 2', completed: false, id: 2, tag: 'Exercise' },
+                { title: 'To Do 3', completed: false, id: 3, tag: 'Reading' },
+                { title: 'To Do 4', completed: false, id: 4, tag: 'Coding' },
             ],
 
             newTodo: ''
@@ -38,7 +38,8 @@ export default {
             this.todos.push({
                 title: name,
                 completed: true,
-                id: this.todos.length + 1
+                id: this.todos.length + 1,
+                tag: 'Extra'
             });
 
             this.newTodo = '';
