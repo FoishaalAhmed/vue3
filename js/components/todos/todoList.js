@@ -10,9 +10,8 @@ export default {
                 <span>({{ todos.length }})</span>
             </h3>
             <todo-tags
-                @change="currentTag = $event"
+                v-model:currentTag="currentTag"
                 :initial-tags="todos.map(t => t.tag)"
-                :current-tag="currentTag"
             ></todo-tags>
             <ul class="border border-gray-600 divide-y divide-gray-600 mt-4">
                 <todo
