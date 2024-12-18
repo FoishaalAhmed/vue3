@@ -15,13 +15,7 @@ export default {
 
     data() {
         return {
-            todos: [
-                { title: 'To Do 1', completed: false, id: 1, tag: 'Coding' },
-                { title: 'To Do 2', completed: false, id: 2, tag: 'Exercise' },
-                { title: 'To Do 3', completed: false, id: 3, tag: 'Reading' },
-                { title: 'To Do 4', completed: false, id: 4, tag: 'Coding' },
-            ],
-
+            todos: [],
             newTodo: ''
         }
     },
@@ -33,6 +27,16 @@ export default {
             }
         }
     },
+
+    created() {
+        fetch('http://localhost:3000/todos')
+            .then(response => response.json())
+            .then(todos => {
+                this.todos = todos
+                
+            });
+    },
+
     methods: {
         add(name) {
             this.todos.push({
