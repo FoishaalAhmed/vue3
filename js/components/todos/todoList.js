@@ -4,11 +4,15 @@ import todoTags from './todoTags.js';
 export default {
     components: {todo, todoTags},
     template: `
-        <section v-show="todos.length">
-            <h3  class="font-bold mb-2">
-                {{ title }}
-                <span>({{ todos.length }})</span>
-            </h3>
+        <section v-show="todos.length" class="w-70">
+            <div class="flex justify-between items-start">
+                <h3  class="font-bold mb-2">
+                    {{ title }}
+                    <span>({{ todos.length }})</span>
+                </h3>
+                <button v-show="canHide" @click="$emit('hide')">&times;</button>
+            </div>
+
             <todo-tags
                 v-model:currentTag="currentTag"
                 :initial-tags="todos.map(t => t.tag)"
@@ -20,12 +24,15 @@ export default {
                 :todo="todo"
                 ></todo>
             </ul>
+
+            <slot></slot>
         </section>
     `,
 
     props: {
         todos: Object,
-        title: String
+        title: String,
+        canHide: {type: Boolean, default:false}
     },
 
     data() {

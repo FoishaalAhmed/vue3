@@ -4,19 +4,19 @@ import todoCreate from "./todoCreate.js";
 export default {
     components: {todoList, todoCreate},
     template: `
-        <section class="space-y-6">
-            <todo-list :todos="filter.inProgress" title="In progress"></todo-list>
-            <todo-list :todos="filter.completed" title="Completed"></todo-list>
-
-            <todo-create @add="add"></todo-create>
-
+        <section class="flex gap-8">
+            <todo-list :todos="filter.inProgress" title="In progress">
+                <todo-create @add="add"></todo-create>
+            </todo-list>
+            <todo-list v-show="hideComplete" :todos="filter.completed" title="Completed" can-hide @hide="hideComplete = ! hideComplete"></todo-list>
         </section>
     `,
 
     data() {
         return {
             todos: [],
-            newTodo: ''
+            newTodo: '',
+            hideComplete: true
         }
     },
     computed: {
