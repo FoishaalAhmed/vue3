@@ -1,10 +1,12 @@
 import todo from './todo.js';
 import todoTags from './todoTags.js';
+import panel from './panel.js';
+
 
 export default {
-    components: {todo, todoTags},
+    components: {todo, todoTags, panel},
     template: `
-        <section v-show="todos.length" class="w-70">
+        <panel v-show="todos.length" class="w-70">
             <div class="flex justify-between items-start">
                 <h3  class="font-bold mb-2">
                     {{ title }}
@@ -26,7 +28,7 @@ export default {
             </ul>
 
             <slot></slot>
-        </section>
+        </panel>
     `,
 
     props: {
