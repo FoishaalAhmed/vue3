@@ -1,9 +1,17 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+// import flash from '../mixins/flash';
+
+// export default {
+//   mixins: [flash]
+// }
+
+import { useFlash } from '../composables/useFlash';
+let { flash } = useFlash();
+
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <button @click="flash('alert from home')">Click me</button>
   </main>
 </template>

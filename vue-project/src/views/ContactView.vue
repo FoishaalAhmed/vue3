@@ -1,15 +1,19 @@
+<script setup>
+// import flash from '../mixins/flash';
+
+// export default {
+//   mixins: [flash]
+// }
+
+import { useFlash } from '../composables/useFlash';
+let { flash } = useFlash();
+</script>
+
 <template>
-  <div class="contact">
-    <h1>This is an contact page</h1>
+  <div>
+    <button @click="flash('alert from contact')">Click me</button>
   </div>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .contact {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
 </style>
